@@ -2,7 +2,7 @@ package functionalInterface;
 
 import java.util.function.Predicate;
 
-public class PredicateExample {
+public class PredicateInterfaceExample {
 	public void testingPredicateMethod(String temp){
 		
 	}
