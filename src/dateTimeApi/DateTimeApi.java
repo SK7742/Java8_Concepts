@@ -1,11 +1,14 @@
 package dateTimeApi;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.TextStyle;
 import java.time.temporal.TemporalAdjusters;
+import java.util.Locale;
 
 public class DateTimeApi {
 	
@@ -31,6 +34,46 @@ public class DateTimeApi {
 		solutionForQuestionFour();
 //		Write a Java program to calculate the first and last day of each week
 		solutionForQuestionFive();
+//		Write a Java program to get the number of days in a month
+		solutionForQuestionSix();
+//		Write a Java program to get localized day-of-week names.
+		solutionForQuestionSeven();
+//		Write a Java program to get a day of the week on a specific date.
+		solutionForQuestionEight();
+//		Write a Java program to get the current local time. 
+		solutionForQuestionNine();
+	}
+
+
+	private static void solutionForQuestionNine() {
+		LocalDateTime dateInLocale = LocalDateTime.now(ZoneId.of("America/Chicago"));
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE MM-dd-YYYY hh:mm:ss:a");
+		String dateinString = dateInLocale.format(formatter);
+		System.out.println("solutionForQuestionNine: " + dateinString);
+	}
+
+
+	private static void solutionForQuestionEight() {
+		String day = LocalDate.now().getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+		System.out.println("solutionForQuestionEight: " + day);
+	}
+
+
+	private static void solutionForQuestionSeven() {
+		String dayInGerman = null;
+		System.out.println("solutionForQuestionSeven: ");
+		for(DayOfWeek day : DayOfWeek.values()) {
+			dayInGerman = day.getDisplayName(TextStyle.FULL, Locale.ENGLISH);
+			System.out.println(dayInGerman);
+		}
+		
+	}
+
+
+	private static void solutionForQuestionSix() {
+		int noOfDaysInMonth = LocalDate.now().getMonth().maxLength();
+		System.out.println("solutionForQuestionSix: " + noOfDaysInMonth);
+		
 	}
 
 
